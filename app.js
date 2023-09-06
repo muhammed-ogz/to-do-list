@@ -1,90 +1,96 @@
 var add_item = document.querySelector("#text");
-var confirm_button = document.querySelector("#todoButton")
-var delete_todos = document.getElementById("deleteButton")
+var confirm_button = document.querySelector("#todoButton");
+var delete_todos = document.getElementById("deleteButton");
 eventListeners();
 
 // butona basıldığında fonksiyon çağırmak için
 
 add_item.onkeypress = function add() {
+  // klavye girişlerini kontrol için which methodu
 
-    // klavye girişlerini kontrol için which methodu
+  if (add == 13) {
+    // create elements
 
-    if (add == 13) {
+    var todo_element = document.createElement("li");
+    var in_span = document.createElement("span");
+    var in_small = document.createElement("small");
+    //create element input checkbox and value
 
-        // create elements
+    var todo_input = document.createElement("input");
+    todo_input.setAttribute("type", "checkbox");
+    todo_input.setAttribute("value", "x");
 
-        var todo_element = document.createElement("li")
-        var in_span = document.createElement("span")
-        var in_small = document.createElement("small")
-        //create element input checkbox and value 
+    //create date items
 
-        var todo_input = document.createElement("input")
-        todo_input.setAttribute("type", "checkbox")
-        todo_input.setAttribute("value", "x")
+    var date = new Date();
+    var now_time =
+      date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear();
 
-        //create date items
+    //add in input and date value
 
-        var date = new Date();
-        var now_time = date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear();
+    var create_time = document.createTextNode(now);
+    var item_value = document.createTextNode(this.value);
 
-        //add in input and date value
+    //paste value
+    in_small.appendChild(create_time);
+    in_span.appendChild(item_value);
+    in_span.appendChild(in_small);
 
-        var create_time = document.createTextNode(now)
-        var item_value = document.createTextNode(this.value)
+    // Paste value 2
 
-        //paste value 
-        in_small.appendChild(create_time)
-        in_span.appendChild(item_value)
-        in_span.appendChild(in_small)
+    todo_element.appendChild(todo_input);
+    todo_element.appendChild(in_span);
+    document.getElementsByClassName("readyItems")[0].appendChild(todo_element);
 
-        // Paste value 2
-
-        todo_element.appendChild(todo_input)
-        todo_element.appendChild(in_span)
-        document.getElementsByClassName("readyItems")
-        [0].appendChild(todo_element)
-
-        // reset input 
-        this.value = "";
-
-    }
-}
-
+    // reset input
+    this.value = "";
+  }
+};
 
 confirm_button.onclick = function (clicked) {
-    var todo_element = document.createElement("li")
+  var todo_element = document.createElement("li");
 
-    var in_span = document.createElement("span")
-    var in_small = document.createElement("small")
-    var todo_input = document.createElement("input")
-    todo_input.setAttribute("type", "checkbox")
-    todo_input.setAttribute("value", "x")
+  var in_span = document.createElement("span");
+  var in_small = document.createElement("small");
+  var todo_input = document.createElement("input");
+  todo_input.setAttribute("type", "checkbox");
+  todo_input.setAttribute("value", "x");
 
-    var date = new Date()
-    var now = date.getDate() + " / " + date.getDate() + " / " + date.getFullYear();
+  var date = new Date();
+  var now =
+    " - tarih :  " +
+    date.getDate() +
+    " / " +
+    date.getDate() +
+    " / " +
+    date.getFullYear();
 
-    var time_item_create = document.createTextNode(now)
-    var item_value = document.createTextNode(add_item.value)
+  var time_item_create = document.createTextNode(now);
+  var item_value = document.createTextNode(add_item.value);
 
-    //addİtems
-    in_small.appendChild(time_item_create)
-    in_span.appendChild(item_value)
-    in_span.appendChild(in_small)
+  //addİtems
+  in_small.appendChild(time_item_create);
+  in_span.appendChild(item_value);
+  in_span.appendChild(in_small);
 
-    //paste values
-    todo_element.appendChild(todo_input)
-    todo_element.appendChild(in_span)
-    document.getElementsByClassName("readyItems")[0].appendChild(todo_element)
+  //paste values
+  todo_element.appendChild(todo_input);
+  todo_element.appendChild(in_span);
+  document.getElementsByClassName("readyItems")[0].appendChild(todo_element);
+};
+//resetinput
+function eventListeners() {
+  delete_todos.addEventListener("click", DeleteAllTodos);
 
-
-}
-    //resetinput
-    function eventListeners(){
-        delete_todos.addEventListener("click",DeleteAllTodos)
-
-        function DeleteAllTodos(){
-            if(confirm("Emin misiniz ?")){
-                document.getElementById("readyItems").innerHTML = "";
-            }
-        }
+  function DeleteAllTodos() {
+    if (confirm("Emin misiniz ?")) {
+      document.getElementById("readyItems").innerHTML = "";
     }
+  }
+}
+
+// localStorage.setItem(key, value);
+// let veri = localStorage.getItem(key); // <- value
+// if (localStorage.getItem("todo") === null) {
+//  ...
+// }

@@ -1,55 +1,45 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="tr-TR">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>To Do List Project</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<body>
+  <body>
     <div class="container">
+      <div class="header">
+        <h1 class="baslik">Hello My To Do List Project !</h1>
+      </div>
 
-        <div class="header">
-            <h1 class="baslik">Hello My To Do List Project !</h1>
-        </div>
+      <div class="section">
+        <p class="aciklama">
+          Bu uygulamanın amacı gündelik yapacğınız işleri kayda alıp
+          tamamlayınca silerek bir kayıt listesi oluşturmak
+        </p>
+      </div>
 
-        <div class="section">
-            <p class="aciklama">Bu uygulamanın amacı gündelik yapacğınız işleri kayda alıp tamamlayınca silerek bir
-                kayıt listesi oluşturmak</p>
-        </div>
+      <div class="addItem">
+        <input id="text" type="text" placeholder="Bir To Do Girin..." />
+        <button id="todoButton">Listeye Ekleyin</button>
+        <button id="deleteButton">Bütün todoları silin</button>
+      </div>
 
+      <!-- Add Items -->
 
-        <div class="addItem">
-            <input id="text" type="text" placeholder="Bir To Do Girin...">
-            <button id="todoButton">Listeye Ekleyin</button>
-            <button id ="deleteButton">Bütün todoları silin</button>
-        </div>
+      <div class="gorevler">
+        <h2>Todolar</h2>
 
-        <!-- Add Items -->
-
-        <div class="gorevler">
-            <h2>Todolar</h2>
-
-            <!-- have items -->
-            <ul class="readyItems">
-                <!-- <li>
+        <!-- have items -->
+        <ul class="readyItems" id="readyItems">
+          <!-- <li>
                     <input type="checkbox">
                     <span>we have items | <small>date</small></span>
                 </li> -->
-            </ul>
-        </div>
-
-
-
-
-
-
-
-
+        </ul>
+      </div>
     </div>
     <script src="app.js"></script>
-</body>
-
+  </body>
 </html>
