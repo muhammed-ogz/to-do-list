@@ -1,0 +1,1 @@
+Bilgileri local Storage da tutma eklenecek
